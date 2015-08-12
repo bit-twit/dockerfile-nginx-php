@@ -41,4 +41,4 @@ EXPOSE 443
 
 CMD ["/usr/bin/supervisord"]
 
-RUN service nginx start && curl http://127.0.0.1
+
