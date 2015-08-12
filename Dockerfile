@@ -14,6 +14,8 @@ RUN apt-get -y install php5-fpm
 RUN apt-get -y install php5-mysql
 RUN apt-get -y install supervisor
 
+RUN apt-get -y install curl
+
 # Add our config files
 ADD conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD conf/nginx.conf /etc/nginx/nginx.conf
@@ -38,3 +40,5 @@ EXPOSE 80
 EXPOSE 443
 
 CMD ["/usr/bin/supervisord"]
+
+RUN service nginx start && curl http://127.0.0.1
